@@ -2,6 +2,7 @@ import React from 'react'
 import Homeimg from './components/Homeimg'
 import LoginForm from './components/LoginForm'
 function Loginpage() {
+    console.log(process.env)
     return (
         <>
         <div className="flex">

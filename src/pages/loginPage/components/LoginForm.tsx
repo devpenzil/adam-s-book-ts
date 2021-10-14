@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+import {useHistory} from 'react-router-dom'
 import PrimaryInput from '../../../components/PrimaryInput'
 import PrimaryButton from '../../../components/PrimaryButton'
 import Heading from '../../../components/Heading'
@@ -6,6 +8,21 @@ import { loggingin } from '../../../redux/Login'
 function LoginForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [buttonmessage, setButtonmessage] = useState('login')
+    const history = useHistory()
+
+    const handleclick = (email:string,password:string) => {
+      setButtonmessage('loading.........')
+      loggingin(email, password)
+      setTimeout(() => {
+        if (localStorage.getItem('success') === null) {
+          toast(localStorage.getItem('error'))
+        }else{
+          history.push('/dashboard')
+        }
+        setButtonmessage('login')
+      }, 3000);
+    }
     return (
         <>
         <div className="w-full bg-green-appgreen h-screen flex justify-center items-center">
@@ -23,11 +40,11 @@ function LoginForm() {
                 type={"password"}
               />
               <PrimaryButton
-                triggerclick={() => loggingin(email, password)}
-                label={'Login'}
+                triggerclick={() => handleclick(email, password)}
+                label={buttonmessage}
               />
             </div>
-  
+            <Toaster />
             
           </div>
         </div>
