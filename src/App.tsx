@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Loginpage from './pages/loginPage/Loginpage'
 
 function App() {
   return (
     <div className="App">
-      <div className='text-9xl'>Hello world</div>
+      <Loginpage />
     </div>
   );
 }
