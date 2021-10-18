@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Heading(props:any) {
+const Heading:React.FC<{label:string}> = ({label}) => {
     return (
         <>
-            <div className="text-center text-5xl font-semibold">{props.label}</div>
+            <div className="text-center text-5xl font-semibold">{label}</div>
         </>
     )
 }

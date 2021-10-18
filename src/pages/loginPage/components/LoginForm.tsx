@@ -6,8 +6,8 @@ import PrimaryButton from '../../../components/PrimaryButton'
 import Heading from '../../../components/Heading'
 import { loggingin } from '../../../redux/Login'
 function LoginForm() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = React.useState<string>('')
+    const [password, setPassword] = React.useState<string>('')
     const [buttonmessage, setButtonmessage] = useState('login')
     const history = useHistory()
 

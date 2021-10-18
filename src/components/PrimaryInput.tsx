@@ -1,11 +1,17 @@
 import React from 'react'
-
-function PrimaryInput(props:any) {
+interface input{
+    label:string,
+    triggerchange:(e:any)=> void,
+    bg?:string,
+    type:string,
+    value?:string
+}
+const PrimaryInput:React.FC<input> = ({label,triggerchange,bg,value,type}) => {
     return (
         <>
             <div className="mt-6">
-                <div className="font-semibold">{props.label}</div>
-                <input onChange={props.triggerchange} style={{backgroundColor:`${props.bg}`}} value={props.value} className="p-2 w-full font-semibold bg-green-appgreen border-2 border-green-appgreendark rounded-xl outline-none" type={props.type}  />
+                <div className="font-semibold">{label}</div>
+                <input onChange={triggerchange} style={{backgroundColor:`${bg}`}} value={value} className="p-2 w-full font-semibold bg-green-appgreen border-2 border-green-appgreendark rounded-xl outline-none" type={type}  />
             </div>
         </>
     )
